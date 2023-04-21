@@ -20,7 +20,6 @@ const App = () => {
 
   const afterGoalHandler = (event, value) => {
     event.target.value = "";
-    console.log(event);
     value("");
   };
 
