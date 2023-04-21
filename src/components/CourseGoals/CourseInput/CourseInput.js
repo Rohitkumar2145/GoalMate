@@ -39,12 +39,13 @@ const FormControl = styled.div`
 const CourseInput = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [isValid, setIsValid] = useState(true);
-
+  const [isEvent, setEvent] = useState();
   const goalInputChangeHandler = (event) => {
     if (event.target.value.trim().length > 0) {
       setIsValid(true);
     }
     setEnteredValue(event.target.value);
+    setEvent(event);
   };
 
   const formSubmitHandler = (event) => {
@@ -54,6 +55,7 @@ const CourseInput = (props) => {
       return;
     }
     props.onAddGoal(enteredValue);
+    props.afterGoal(isEvent, setEnteredValue);
   };
 
   return (

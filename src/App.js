@@ -18,6 +18,12 @@ const App = () => {
     });
   };
 
+  const afterGoalHandler = (event, value) => {
+    event.target.value = "";
+    console.log(event);
+    value("");
+  };
+
   const deleteItemHandler = (goalId) => {
     setCourseGoals((prevGoals) => {
       const updatedGoals = prevGoals.filter((goal) => goal.id !== goalId);
@@ -38,7 +44,7 @@ const App = () => {
   return (
     <div>
       <section id="goal-form">
-        <CourseInput onAddGoal={addGoalHandler} />
+        <CourseInput onAddGoal={addGoalHandler} afterGoal={afterGoalHandler} />
       </section>
       <section id="goals">
         {content}
